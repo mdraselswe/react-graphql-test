@@ -1,0 +1,19 @@
+@use '../../styles/scss/partials/colors';
+
+.span {
+  vertical-align: -3px;
+  margin-right: 0.875rem;
+}
+
+.button {
+  background: colors.$white;
+  border: 0.5px solid colors.$blue_dark;
+  border-radius: 0.625rem;
+  color: colors.$blue_dark;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  min-width: 9.125rem;
+  height: 2.25rem;
+  font-weight: 700;
+}

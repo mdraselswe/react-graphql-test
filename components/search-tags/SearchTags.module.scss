@@ -1,0 +1,20 @@
+.input_root {
+  position: relative;
+
+  & > div > div {
+    position: absolute;
+    bottom: -45px;
+  }
+
+  & input {
+    // position: absolute;
+    // top: -17px;
+    position: absolute;
+    top: -57px;
+    cursor: none;
+
+    &::focus {
+      cursor: none;
+    }
+  }
+}

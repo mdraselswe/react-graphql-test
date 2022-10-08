@@ -1,0 +1,27 @@
+@use '../../styles/scss/partials/colors';
+
+.input {
+  background: colors.$white_2;
+  border: 0.0125em solid rgb(104 112 116 / 19%);
+  border-radius: 0.3125rem;
+  color: colors.$black;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  margin: 0.625rem 0;
+}
+
+.input_root {
+  margin: 0.625rem 0;
+
+  label {
+    color: colors.$grey;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    display: flex;
+  }
+
+  input {
+    margin-top: 0.9375rem;
+  }
+}
