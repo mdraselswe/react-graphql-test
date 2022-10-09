@@ -5,7 +5,6 @@ import { UPDATE_COMMENT_MUTATION } from '../../lib/queries/updateCommentMutation
 import PrimaryButton from '../buttons/PrimaryButton';
 import Content from '../content/Content';
 import PrimaryInput from '../inputs/PrimaryInput';
-import SearchTags from '../search-tags/SearchTags';
 
 const EditComment = ({ data }) => {
   console.log('🚀 ~ file: EditComment.js ~ line 11 ~ EditComment ~ data', data);
@@ -22,19 +21,6 @@ const EditComment = ({ data }) => {
           body: body,
         },
       },
-      //   refetchQueries: [
-      //     {
-      //       query: POSTS,
-      //       variables: { launchId: data.id },
-      //     },
-      //   ],
-      //   update(cache, { data }) {
-      //     const { posts } = cache.readQuery({ query: POSTS });
-      //     cache.writeQuery({
-      //       query: POSTS,
-      //       data: { posts: posts.concat([data.updatePost]) },
-      //     });
-      //   },
     });
 
     if (error) {
@@ -59,7 +45,6 @@ const EditComment = ({ data }) => {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-        <SearchTags />
       </div>
     </Content>
   );

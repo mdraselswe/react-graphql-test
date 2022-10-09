@@ -4,7 +4,6 @@ import Icon from '../../components/icons';
 import PrimaryButton from '../buttons/PrimaryButton';
 import Content from '../content/Content';
 import PrimaryInput from '../inputs/PrimaryInput';
-import SearchTags from '../search-tags/SearchTags';
 // import { CREATE_POST_MUTATION } from '../../lib/queries/createPostMutation';
 import { UPDATE_POST_MUTATION } from '../../lib/queries/updatePostMutation';
 // import POSTS from '../../lib/queries/getPosts';
@@ -98,7 +97,6 @@ const EditPost = ({ data }) => {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-        <SearchTags />
       </div>
     </Content>
   );

@@ -5,7 +5,6 @@ import { UPDATE_USER_MUTATION } from '../../lib/queries/updateUserMutation';
 import PrimaryButton from '../buttons/PrimaryButton';
 import Content from '../content/Content';
 import PrimaryInput from '../inputs/PrimaryInput';
-import SearchTags from '../search-tags/SearchTags';
 
 const EditUser = ({ data }) => {
   console.log('🚀 ~ file: EditUser.js ~ line 12 ~ EditUser ~ data', data);
@@ -26,19 +25,6 @@ const EditUser = ({ data }) => {
           email: email,
         },
       },
-      //   refetchQueries: [
-      //     {
-      //       query: POSTS,
-      //       variables: { launchId: data.id },
-      //     },
-      //   ],
-      //   update(cache, { data }) {
-      //     const { posts } = cache.readQuery({ query: POSTS });
-      //     cache.writeQuery({
-      //       query: POSTS,
-      //       data: { posts: posts.concat([data.updatePost]) },
-      //     });
-      //   },
     });
 
     if (error) {
@@ -69,7 +55,6 @@ const EditUser = ({ data }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <SearchTags data={data} />
       </div>
     </Content>
   );
