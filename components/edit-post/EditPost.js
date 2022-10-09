@@ -9,7 +9,7 @@ import { notification } from 'antd';
 import COMMENTS from '../../lib/queries/getComments';
 import POSTS from '../../lib/queries/getPosts';
 import { UPDATE_POST_MUTATION } from '../../lib/queries/updatePostMutation';
-import SelectItems from '../select/SelectItems';
+import SelectMultiple from '../select/SelectMultiple';
 
 const openNotificationWithIcon = (type) => {
   notification[type]({
@@ -120,7 +120,9 @@ const EditPost = ({ data }) => {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-        <SelectItems
+        <SelectMultiple
+          label='Comments'
+          childLabel='Search Comments And Assign it To the Post '
           selectedItems={selectedComments}
           setSelectedItems={setSelectedComments}
           options={commentOptions}

@@ -15,7 +15,6 @@ const openNotificationWithIcon = (type) => {
 };
 
 const EditUser = ({ data }) => {
-  console.log('🚀 ~ file: EditUser.js ~ line 12 ~ EditUser ~ data', data);
   const [firstName, setFirstName] = useState(
     data?.data?.first_name || 'Test User'
   );

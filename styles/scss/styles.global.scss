@@ -73,3 +73,23 @@ h5 {
     color: colors.$grey;
   }
 }
+
+// select
+.input_root {
+  margin: 0.625rem 0;
+
+  .label {
+    color: colors.$grey;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    display: flex;
+    margin-bottom: .5rem;
+  }
+  .child_label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: colors.$grey;
+  }
+}
