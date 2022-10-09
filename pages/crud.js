@@ -1,6 +1,5 @@
-import { Layout } from 'antd';
-import React from 'react';
 import { useQuery } from '@apollo/client';
+import React from 'react';
 import EditComment from '../components/edit-comment/EditComment';
 import EditPost from '../components/edit-post/EditPost';
 import EditUser from '../components/edit-user/EditUser';
@@ -12,49 +11,39 @@ import COMMENTS from '../lib/queries/getComments';
 import POSTS from '../lib/queries/getPosts';
 import USERS from '../lib/queries/getUsers';
 
-const { Content } = Layout;
-
 const Crud = () => {
   const {
     loading: usersLoading,
     error: usersError,
     data: usersData,
   } = useQuery(USERS);
+  console.log('🚀 ~ file: Crud.js ~ line 20 ~ Crud ~ usersData', usersData);
 
   const {
     loading: postsLoading,
     error: postsError,
     data: postsData,
   } = useQuery(POSTS);
+  console.log('🚀 ~ file: Crud.js ~ line 27 ~ Crud ~ postsData', postsData);
 
   const {
     loading: commentsLoading,
     error: commentsError,
     data: commentsData,
   } = useQuery(COMMENTS);
-
-  console.log('----users', usersData, usersLoading);
-  console.log('----posts', postsData);
-  console.log('----comments', commentsData);
+  console.log(
+    '🚀 ~ file: Crud.js ~ line 33 ~ Crud ~ commentsData',
+    commentsData
+  );
 
   if (usersLoading) return <p>Loading...</p>;
 
   if (usersError || !usersData) return <p>ERROR</p>;
 
-  // if (usersData.users.length === 0) return <p>Not found</p>;
-
-  // console.log('data', data, loading, error);
-
-  const options = postsData.posts.map((post) => ({
-    label: post.data.first_name || 'Test Name',
-    value: post.id,
-  }));
-
-  console.log('options', options);
+  if (usersData.users.length === 0) return <p>Not found</p>;
 
   const users = usersData.users.map((user) => {
     return {
-      // label: user.data.first_name || 'Test',
       label: (
         <TabLabelWithIcon
           label={user.data.first_name || 'Test User'}
@@ -63,13 +52,11 @@ const Crud = () => {
       ),
       key: user.id,
       children: <EditUser data={user} />,
-      // children: <PrimaryAutoComplete options={options} />,
     };
   });
 
   const posts = postsData.posts.map((post) => {
     return {
-      // label: user.data.first_name || 'Test',
       label: (
         <TabLabelWithIcon
           label={post.data.title || 'Test Post'}
@@ -83,7 +70,6 @@ const Crud = () => {
 
   const comments = commentsData.comments.map((comment) => {
     return {
-      // label: user.data.first_name || 'Test',
       label: (
         <TabLabelWithIcon
           label={comment.data.body || 'Test Comment'}
@@ -125,11 +111,9 @@ export default Crud;
 
 export const getStaticProps = async () => {
   const apolloClient = initializeApollo();
+
   await apolloClient.query({
     query: USERS,
-    // variables: { code: 'VARIABLE' },
-    // notifyOnNetworkStatusChange: true,
-    // fetchPolicy: 'no-cache',
   });
   await apolloClient.query({
     query: POSTS,

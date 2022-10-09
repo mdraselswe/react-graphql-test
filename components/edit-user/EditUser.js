@@ -9,9 +9,9 @@ import PrimaryInput from '../inputs/PrimaryInput';
 const EditUser = ({ data }) => {
   console.log('🚀 ~ file: EditUser.js ~ line 12 ~ EditUser ~ data', data);
   const [firstName, setFirstName] = useState(
-    data?.data?.first_name || 'Muhammad Rasel'
+    data?.data?.first_name || 'Test User'
   );
-  const [email, setEmail] = useState(data?.data?.email || 'rasel@gmail.com');
+  const [email, setEmail] = useState(data?.data?.email || 'test@gmail.com');
 
   const [updateUser, { error }] = useMutation(UPDATE_USER_MUTATION);
 
