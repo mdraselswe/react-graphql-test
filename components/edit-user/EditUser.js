@@ -1,10 +1,18 @@
 import { useMutation } from '@apollo/client';
+import { notification } from 'antd';
 import React, { useState } from 'react';
 import Icon from '../../components/icons';
+import USERS from '../../lib/queries/getUsers';
 import { UPDATE_USER_MUTATION } from '../../lib/queries/updateUserMutation';
 import PrimaryButton from '../buttons/PrimaryButton';
 import Content from '../content/Content';
 import PrimaryInput from '../inputs/PrimaryInput';
+
+const openNotificationWithIcon = (type) => {
+  notification[type]({
+    message: 'User Updated Successfully',
+  });
+};
 
 const EditUser = ({ data }) => {
   console.log('🚀 ~ file: EditUser.js ~ line 12 ~ EditUser ~ data', data);
@@ -13,7 +21,9 @@ const EditUser = ({ data }) => {
   );
   const [email, setEmail] = useState(data?.data?.email || 'test@gmail.com');
 
-  const [updateUser, { error }] = useMutation(UPDATE_USER_MUTATION);
+  const [updateUser, { error }] = useMutation(UPDATE_USER_MUTATION, {
+    onCompleted: () => openNotificationWithIcon('success'),
+  });
 
   //  ---UPDATE USER---
   const modifyUser = () => {
@@ -25,6 +35,11 @@ const EditUser = ({ data }) => {
           email: email,
         },
       },
+      refetchQueries: [
+        {
+          query: USERS,
+        },
+      ],
     });
 
     if (error) {

@@ -19,8 +19,6 @@ const PrimaryTab = ({
           minWidth,
           borderRight: '1px solid rgba(104, 112, 116, 0.31)',
         }}
-        onChange={(e) => console.log('onchange', e)}
-        onTabClick={(e) => console.log('ontabclick', e)}
         {...otherProps}
       />
     </div>

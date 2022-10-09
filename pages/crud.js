@@ -46,7 +46,7 @@ const Crud = () => {
     return {
       label: (
         <TabLabelWithIcon
-          label={user.data.first_name || 'Test User'}
+          label={user.data?.first_name || 'Test User'}
           icon={<CustomIcon name='user' width={16} height={16} />}
         />
       ),
@@ -59,7 +59,7 @@ const Crud = () => {
     return {
       label: (
         <TabLabelWithIcon
-          label={post.data.title || 'Test Post'}
+          label={post.data?.title || 'Test Post'}
           icon={<CustomIcon name='user' width={16} height={16} />}
         />
       ),
@@ -72,7 +72,7 @@ const Crud = () => {
     return {
       label: (
         <TabLabelWithIcon
-          label={comment.data.body || 'Test Comment'}
+          label={comment.data?.body || 'Test Comment'}
           icon={<CustomIcon name='user' width={16} height={16} />}
         />
       ),
