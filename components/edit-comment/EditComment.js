@@ -18,9 +18,9 @@ const openNotificationWithIcon = (type) => {
 
 const EditComment = ({ data }) => {
   const [body, setBody] = useState(data?.data?.body || 'Test Body');
-  const [selectedPost, setSelectedPost] = useState(null);
+  const [selectedPost, setSelectedPost] = useState(data?.post?.id || null);
   const [postOptions, setPostOptions] = useState([]);
-
+  
   const {
     loading: postsLoading,
     error: postsError,
@@ -64,6 +64,8 @@ const EditComment = ({ data }) => {
     }
   };
 
+  if (postsError || error) return <p>ERROR</p>;
+
   return (
     <Content>
       <div className='header'>
@@ -86,6 +88,7 @@ const EditComment = ({ data }) => {
           options={postOptions}
           label='Post'
           childLabel='Search A Post and Tag this Comment '
+          defaultValue={selectedPost}
         />
       </div>
     </Content>

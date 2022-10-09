@@ -20,7 +20,12 @@ const openNotificationWithIcon = (type) => {
 const EditPost = ({ data }) => {
   const [title, setTitle] = useState(data?.data?.title || 'Test Title');
   const [body, setBody] = useState(data?.data?.body?.html || 'Test Body');
-  const [selectedComments, setSelectedComments] = useState([]);
+
+  let initialComments = [];
+  data?.comments.forEach((item) => {
+    initialComments.push(item.id);
+  });
+  const [selectedComments, setSelectedComments] = useState(initialComments || []);
   const [commentOptions, setCommentOptions] = useState([]);
 
   const {

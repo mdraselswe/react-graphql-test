@@ -17,28 +17,22 @@ const Crud = () => {
     error: usersError,
     data: usersData,
   } = useQuery(USERS);
-  console.log('🚀 ~ file: Crud.js ~ line 20 ~ Crud ~ usersData', usersData);
 
   const {
     loading: postsLoading,
     error: postsError,
     data: postsData,
   } = useQuery(POSTS);
-  console.log('🚀 ~ file: Crud.js ~ line 27 ~ Crud ~ postsData', postsData);
 
   const {
     loading: commentsLoading,
     error: commentsError,
     data: commentsData,
   } = useQuery(COMMENTS);
-  console.log(
-    '🚀 ~ file: Crud.js ~ line 33 ~ Crud ~ commentsData',
-    commentsData
-  );
 
   if (usersLoading) return <p>Loading...</p>;
 
-  if (usersError || !usersData) return <p>ERROR</p>;
+  if (usersError || postsError || commentsError) return <p>ERROR</p>;
 
   if (usersData.users.length === 0) return <p>Not found</p>;
 
